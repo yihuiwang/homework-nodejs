@@ -42,7 +42,7 @@ for (let p in t) {
 }
 // console.log(Object.getOwnPropertyNames(t));
 
-// 2
+// 2 //I don't think this is what the question asks. It may want us to create a prototype function for Array
 function shuffle(arr) {
     for (let i = arr.length - 1; i > 0; i--) {
         const randomIdx = Math.floor(Math.random() * arr.length);
