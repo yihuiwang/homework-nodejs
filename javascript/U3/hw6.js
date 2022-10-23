@@ -1,21 +1,27 @@
-function getValue(character) {
-    return character.charCodeAt() - 'a'.charCodeAt() + 1;
+var str = 'abc cde adb dfb def ee abcd cc'
+    tempstr = str.split(' ')
+    //console.log(tempstr)
+    dict = new Object()
+
+for(let i = 0; i < tempstr.length; i++){
+    dict[sumUnit(tempstr[i])] = [];
 }
 
-function calcValues(str) {
-    const result = {};
-    const splits = str.trim().split(' ');
-    splits.forEach(letters => {
-        const value = letters
-            .split('')
-            .reduce((acc, cur) => acc + getValue(cur), 0);
-        if (value in result) {
-            result[value].push(letters);
-        } else {
-            result[value] = [letters];
-        }
-    });
-    return result;
+for(let i = 0; i < tempstr.length; i++){
+    dict[sumUnit(tempstr[i])].push(tempstr[i]);
 }
 
-console.log(calcValues('abc cde adb dfb def ee abcd cc'));
+var str = JSON.stringify(dict)
+console.log(str)
+
+
+function sumUnit(x){
+    arr = x.split('');
+    var sum = 0;
+    for(let i = 0; i < arr.length; i++){
+        sum += arr[i].charCodeAt(0)-96;
+    }
+    return sum.toString();
+}
+
+
